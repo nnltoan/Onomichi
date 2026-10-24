@@ -74,7 +74,15 @@ h2{font:700 30px/1.2 "Zen Kaku Gothic New";margin:0 0 8px}
 footer{border-top:1px solid var(--line);padding:36px 0 48px;font:400 13px "IBM Plex Mono";color:var(--muted)}
 footer .row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 footer a{text-decoration:none;margin-right:16px}
+.item.photo{align-items:center}
+.item.photo .txt{flex:1}
+.thumb{width:96px;height:96px;object-fit:cover;border-radius:14px;flex:none;margin-right:4px}
+.tray-img{width:150px;height:150px;object-fit:cover;border-radius:14px}
+.hero-art{background:#e9e1d4}
 @media (max-width:820px){
+  .thumb{width:76px;height:76px}
+  .menu-grid > div + div .cat:first-child{margin-top:36px}
+
   .hero,.menu-grid,.visit{grid-template-columns:1fr}
   .about,.extras{grid-template-columns:1fr}
   nav a:not(.keep){display:none}
@@ -99,7 +107,7 @@ footer a{text-decoration:none;margin-right:16px}
       <div class="btns"><a class="btn primary" href="#menu" data-i18n="cta_menu">See the menu</a><a class="btn ghost" href="#book" data-i18n="cta_book">Book an evening seat</a></div>
     </div>
     <div class="hero-art">
-      <img src="images/hero.svg" alt="Illustration of a rice bowl with salmon, kale and cucumber" data-alt-fi="Piirros riisikulhosta, jossa on lohta, lehtikaalia ja kurkkua">
+      <img src="images/hero.jpg" alt="Light oak counter with six stools and a set tray with a salmon rice bowl">
       <div class="seats"><i></i><i></i><i></i><i></i><i></i><i></i> <span data-i18n="seats">6 seats</span></div>
     </div>
   </div>
@@ -124,20 +132,20 @@ footer a{text-decoration:none;margin-right:16px}
     <div class="menu-grid">
       <div>
         <div class="cat" data-i18n="cat_bowls">Bowls</div>
-        <div class="item"><div><b data-i18n="m1">Torched salmon bowl</b><p data-i18n="m1d">Rice, seared salmon, kale, cucumber, pickled red onion, nori, sesame</p></div><span class="price">17,50</span></div>
-        <div class="item"><div><b data-i18n="m2">Thin-sliced beef bowl</b><p data-i18n="m2d">Rice, Finnish beef, soft egg, kale, spring onion, yuzu-kosho mayo</p></div><span class="price">18,50</span></div>
-        <div class="item"><div><b data-i18n="m3">Tofu and avocado bowl</b><span class="tag">VG</span><p data-i18n="m3d">Rice, crispy tofu, avocado, roasted aubergine, cucumber, ginger, sesame oil</p></div><span class="price">16,50</span></div>
+        <div class="item photo"><img class="thumb" src="images/salmon-bowl-thumb.jpg" alt="" loading="lazy" width="320" height="320"><div class="txt"><b data-i18n="m1">Torched salmon bowl</b><p data-i18n="m1d">Rice, seared salmon, kale, cucumber, pickled red onion, nori, sesame</p></div><span class="price">17,50</span></div>
+        <div class="item photo"><img class="thumb" src="images/beef-bowl-thumb.jpg" alt="" loading="lazy" width="320" height="320"><div class="txt"><b data-i18n="m2">Thin-sliced beef bowl</b><p data-i18n="m2d">Rice, Finnish beef, soft egg, kale, spring onion, yuzu-kosho mayo</p></div><span class="price">18,50</span></div>
+        <div class="item photo"><img class="thumb" src="images/tofu-bowl-thumb.jpg" alt="" loading="lazy" width="320" height="320"><div class="txt"><b data-i18n="m3">Tofu and avocado bowl</b><span class="tag">VG</span><p data-i18n="m3d">Rice, crispy tofu, avocado, roasted aubergine, cucumber, ginger, sesame oil</p></div><span class="price">16,50</span></div>
       </div>
       <div>
         <div class="cat"><b style="font-weight:500" data-i18n="cat_soups">Rice soups</b> <span data-i18n="cat_soups_s">ochazuke-style</span></div>
-        <div class="item"><div><b data-i18n="m4">Miso salmon rice soup</b><p data-i18n="m4d">Rice, grilled salmon, leek, kale, ginger, nori</p></div><span class="price">17,50</span></div>
-        <div class="item"><div><b data-i18n="m5">Pike-perch dashi rice soup</b><p data-i18n="m5d">Rice, Finnish pike-perch, daikon, wakame, sesame</p></div><span class="price">18,00</span></div>
-        <div class="item"><div><b data-i18n="m6">Shiitake and yuzu rice soup</b><span class="tag">VG</span><p data-i18n="m6d">Rice, silken tofu, shiitake, leek, yuzu, spinach</p></div><span class="price">16,50</span></div>
+        <div class="item photo"><img class="thumb" src="images/miso-salmon-soup-thumb.jpg" alt="" loading="lazy" width="320" height="320"><div class="txt"><b data-i18n="m4">Miso salmon rice soup</b><p data-i18n="m4d">Rice, grilled salmon, leek, kale, ginger, nori</p></div><span class="price">17,50</span></div>
+        <div class="item photo"><img class="thumb" src="images/pikeperch-soup-thumb.jpg" alt="" loading="lazy" width="320" height="320"><div class="txt"><b data-i18n="m5">Pike-perch dashi rice soup</b><p data-i18n="m5d">Rice, Finnish pike-perch, daikon, wakame, sesame</p></div><span class="price">18,00</span></div>
+        <div class="item photo"><img class="thumb" src="images/shiitake-soup-thumb.jpg" alt="" loading="lazy" width="320" height="320"><div class="txt"><b data-i18n="m6">Shiitake and yuzu rice soup</b><span class="tag">VG</span><p data-i18n="m6d">Rice, silken tofu, shiitake, leek, yuzu, spinach</p></div><span class="price">16,50</span></div>
       </div>
     </div>
 
     <div class="tray">
-      <svg viewBox="0 0 92 92" aria-hidden="true"><rect x="4" y="22" width="84" height="52" rx="10" fill="none" stroke="#fff" stroke-width="2"/><circle cx="34" cy="48" r="16" fill="none" stroke="#F3DCD3" stroke-width="2"/><circle cx="64" cy="40" r="8" fill="none" stroke="#C8462B" stroke-width="2"/><circle cx="64" cy="60" r="7" fill="none" stroke="#7A8B4F" stroke-width="2"/></svg>
+      <img class="tray-img" src="images/tray-thumb.jpg" alt="Steamed egg custard with peanuts and pickled cucumber with black beans" loading="lazy">
       <div><h3 data-i18n="tray_h">On every tray</h3><p data-i18n="tray_p">A small chawanmushi with crushed peanuts, and quick-pickled cucumber with black beans. Changes with the season.</p></div>
     </div>
 
@@ -162,11 +170,11 @@ footer a{text-decoration:none;margin-right:16px}
         <div class="item"><div><b data-i18n="d2">Cold-brew hojicha</b><p data-i18n="d2d">Roasted green tea, unsweetened</p></div><span class="price">4,90</span></div>
         <div class="item"><div><b data-i18n="d3">Sea buckthorn soda</b><p data-i18n="d3d">Finnish sea buckthorn, honey, sparkling water</p></div><span class="price">5,90</span></div>
         <div class="cat" data-i18n="cat_dessert">Dessert</div>
-        <div class="item"><div><b data-i18n="ds1">Hojicha cheesecake</b></div><span class="price">6,50</span></div>
-        <div class="item"><div><b data-i18n="ds2">Black sesame pound cake</b><span class="tag">VG</span></div><span class="price">6,50</span></div>
+        <div class="item photo"><img class="thumb" src="images/cheesecake-thumb.jpg" alt="" loading="lazy" width="320" height="320"><div class="txt"><b data-i18n="ds1">Hojicha cheesecake</b></div><span class="price">6,50</span></div>
+        <div class="item photo"><img class="thumb" src="images/sesame-cake-thumb.jpg" alt="" loading="lazy" width="320" height="320"><div class="txt"><b data-i18n="ds2">Black sesame pound cake</b><span class="tag">VG</span></div><span class="price">6,50</span></div>
       </div>
     </div>
-    <p class="note" data-i18n="note">VG = plant-based. Card payments only. This menu is a demo.</p>
+    <p class="note" data-i18n="note">VG = plant-based. Card payments only. This menu is a demo; food photos are AI-generated.</p>
   </div>
 </section>
 
@@ -226,7 +234,7 @@ const FI={
  cat_extra:"Lisätäytteet",x1:"Riisi",free:"maksutta",x2:"Avokado",x3:"Pehmeä muna",x4:"Lisälohi",x5:"Lisänauta",x6:"Yuzu-kosho-majoneesi",
  cat_drinks:"Juomat",d1:"Talon inkiväärilimonadi",d1d:"Tuoretta inkivääriä, sitruunaa, minttua",d2:"Kylmäuutettu hojicha",d2d:"Paahdettua vihreää teetä, makeuttamaton",d3:"Tyrnisooda",d3d:"Suomalaista tyrniä, hunajaa, kivennäisvettä",
  cat_dessert:"Jälkiruoka",ds1:"Hojicha-juustokakku",ds2:"Mustaseesamikakku",
- note:"VG = kasvipohjainen. Vain korttimaksu. Tämä menu on demo.",
+ note:"VG = kasvipohjainen. Vain korttimaksu. Tämä menu on demo; ruokakuvat on tehty tekoälyllä.",
  visit_h:"Käynti",visit_sub:"Lounaalle ilman varausta. Illat varauksella, 45 minuuttia per paikka.",
  hours_h:"Aukioloajat",mon:"Maanantai",closed:"suljettu",tuefri:"Ti – Pe",sat:"Lauantai",sun:"Sunnuntai",closed2:"suljettu",
  find_h:"Löydä meidät",fictional:"(keksitty osoite)",book_btn:"Varaa iltapaikka",
