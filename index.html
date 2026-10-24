@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ONOMICHI – Japanese bowl counter, Helsinki (demo)</title>
+<meta name="description" content="ONOMICHI is a six-seat Japanese counter serving rice bowls and rice soups as sets. Demo restaurant for beestaff.ai.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F7F3EC; --card:#FFFDF9; --ink:#1C1B19; --muted:#6E6A63; --line:#E3DDD2;
+  --accent:#C8462B; --accent-soft:#F3DCD3; --matcha:#7A8B4F;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 "Zen Kaku Gothic New",system-ui,sans-serif}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.demo{background:var(--ink);color:#fff;font:500 12px/1.4 "IBM Plex Mono",monospace;text-align:center;padding:8px 16px;letter-spacing:.04em}
+header.top{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo b{font:700 26px/1 "Zen Kaku Gothic New";letter-spacing:.22em}
+.logo small{font:400 12px/1 "IBM Plex Mono";color:var(--muted);letter-spacing:.08em}
+nav a{font:500 13px "IBM Plex Mono";letter-spacing:.08em;text-decoration:none;margin-left:22px;text-transform:uppercase}
+nav a:hover{color:var(--accent)}
+.lang{border:1px solid var(--line);border-radius:999px;padding:4px 10px;margin-left:22px;background:none;font:500 12px "IBM Plex Mono";cursor:pointer}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;padding:40px 0 72px}
+.eyebrow{font:500 13px "IBM Plex Mono";letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+h1{font:700 clamp(36px,5.4vw,60px)/1.08 "Zen Kaku Gothic New";margin:14px 0 18px;letter-spacing:-.01em}
+.lead{font-size:19px;color:#3a3833;max-width:34em}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-block;padding:13px 22px;border-radius:999px;font:500 14px "IBM Plex Mono";letter-spacing:.06em;text-decoration:none;text-transform:uppercase}
+.btn.primary{background:var(--ink);color:#fff}
+.btn.primary:hover{background:var(--accent)}
+.btn.ghost{border:1px solid var(--ink)}
+.hero-art{aspect-ratio:4/5;border-radius:24px;background:var(--card);border:1px solid var(--line);display:grid;place-items:center;overflow:hidden;position:relative}
+.hero-art img{width:100%;height:100%;object-fit:cover}
+.seats{position:absolute;left:18px;bottom:18px;background:var(--paper);border-radius:999px;padding:8px 14px;font:500 12px "IBM Plex Mono";display:flex;gap:6px;align-items:center}
+.seats i{width:9px;height:9px;border-radius:50%;background:var(--ink);display:inline-block}
+section{padding:72px 0;border-top:1px solid var(--line)}
+h2{font:700 30px/1.2 "Zen Kaku Gothic New";margin:0 0 8px}
+.sub{color:var(--muted);margin:0 0 36px}
+.about{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.about div{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px}
+.about h3{font:700 18px "Zen Kaku Gothic New";margin:12px 0 6px}
+.about p{margin:0;color:#4a4740;font-size:15px}
+.num{font:500 13px "IBM Plex Mono";color:var(--accent)}
+.menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 48px}
+.cat{font:500 13px "IBM Plex Mono";letter-spacing:.14em;text-transform:uppercase;margin:36px 0 6px;display:flex;gap:10px;align-items:baseline}
+.cat:first-child{margin-top:0}
+.cat span{color:var(--muted);letter-spacing:.02em;text-transform:none}
+.item{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px dashed var(--line)}
+.item b{font:700 16px "Zen Kaku Gothic New"}
+.item p{margin:2px 0 0;font-size:14px;color:var(--muted)}
+.price{font:500 15px "IBM Plex Mono";white-space:nowrap}
+.tag{font:500 11px "IBM Plex Mono";color:var(--matcha);border:1px solid var(--matcha);border-radius:4px;padding:0 4px;margin-left:6px;vertical-align:2px}
+.tray{margin-top:44px;background:var(--ink);color:#fff;border-radius:20px;padding:28px 30px;display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center}
+.tray h3{margin:0 0 4px;font:700 20px "Zen Kaku Gothic New"}
+.tray p{margin:0;color:#d9d4cb;font-size:15px}
+.tray svg{width:92px;height:92px}
+.extras{display:grid;grid-template-columns:repeat(3,1fr);gap:4px 24px;font:400 14px "IBM Plex Mono"}
+.extras div{display:flex;justify-content:space-between;border-bottom:1px dashed var(--line);padding:8px 0}
+.note{margin-top:28px;font:400 13px "IBM Plex Mono";color:var(--muted)}
+.visit{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px}
+.box h3{font:700 20px "Zen Kaku Gothic New";margin:0 0 12px}
+.hours{width:100%;border-collapse:collapse;font:400 15px "IBM Plex Mono"}
+.hours td{padding:8px 0;border-bottom:1px dashed var(--line)}
+.hours td:last-child{text-align:right}
+.closed{color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:36px 0 48px;font:400 13px "IBM Plex Mono";color:var(--muted)}
+footer .row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer a{text-decoration:none;margin-right:16px}
+@media (max-width:820px){
+  .hero,.menu-grid,.visit{grid-template-columns:1fr}
+  .about,.extras{grid-template-columns:1fr}
+  nav a:not(.keep){display:none}
+  .hero{padding-top:16px}
+  .tray{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="demo" data-i18n="demo">DEMO RESTAURANT – a fictional place made to show beestaff.ai. Not a real business.</div>
+<div class="wrap">
+  <header class="top">
+    <a class="logo" href="#"><svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="15.5" fill="none" stroke="#1C1B19" stroke-width="1.5"/><path d="M8 20c2-4 6-4 8-1 2-4 8-4 10 1" fill="none" stroke="#C8462B" stroke-width="1.8" stroke-linecap="round"/></svg><span><b>ONOMICHI</b><br><small>bowl counter · helsinki</small></span></a>
+    <nav><a href="#menu" class="keep" data-i18n="nav_menu">Menu</a><a href="#visit" data-i18n="nav_visit">Visit</a><a href="#book" data-i18n="nav_book">Book</a><button class="lang" id="lang">FI</button></nav>
+  </header>
+
+  <div class="hero">
+    <div>
+      <div class="eyebrow" data-i18n="eyebrow">Six seats · one counter</div>
+      <h1 data-i18n="h1">Japanese rice bowls and soups, served as a set.</h1>
+      <p class="lead" data-i18n="lead">A short menu, cooked in front of you. Seasonal Finnish vegetables, lean fish and meat, very little oil, and a broth we start every morning.</p>
+      <div class="btns"><a class="btn primary" href="#menu" data-i18n="cta_menu">See the menu</a><a class="btn ghost" href="#book" data-i18n="cta_book">Book an evening seat</a></div>
+    </div>
+    <div class="hero-art">
+      <img src="images/hero.svg" alt="Illustration of a rice bowl with salmon, kale and cucumber" data-alt-fi="Piirros riisikulhosta, jossa on lohta, lehtikaalia ja kurkkua">
+      <div class="seats"><i></i><i></i><i></i><i></i><i></i><i></i> <span data-i18n="seats">6 seats</span></div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2 data-i18n="about_h">How ONOMICHI works</h2>
+    <p class="sub" data-i18n="about_sub">Small on purpose, so every bowl gets attention.</p>
+    <div class="about">
+      <div><span class="num">01</span><h3 data-i18n="a1h">Pick a bowl or a soup</h3><p data-i18n="a1p">Five bowls and soups, two of them fully plant-based. Change the rice amount for free.</p></div>
+      <div><span class="num">02</span><h3 data-i18n="a2h">It comes as a set</h3><p data-i18n="a2p">Every main comes on a tray with today's small side and pickles.</p></div>
+      <div><span class="num">03</span><h3 data-i18n="a3h">Finish with something sweet</h3><p data-i18n="a3p">Hojicha cheesecake or a slice of black sesame pound cake.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="wrap">
+    <h2 data-i18n="menu_h">Menu</h2>
+    <p class="sub" data-i18n="menu_sub">Prices in euros. Tell us about allergies when you order.</p>
+    <div class="menu-grid">
+      <div>
+        <div class="cat" data-i18n="cat_bowls">Bowls</div>
+        <div class="item"><div><b data-i18n="m1">Torched salmon bowl</b><p data-i18n="m1d">Rice, seared salmon, kale, cucumber, pickled red onion, nori, sesame</p></div><span class="price">17,50</span></div>
+        <div class="item"><div><b data-i18n="m2">Thin-sliced beef bowl</b><p data-i18n="m2d">Rice, Finnish beef, soft egg, kale, spring onion, yuzu-kosho mayo</p></div><span class="price">18,50</span></div>
+        <div class="item"><div><b data-i18n="m3">Tofu and avocado bowl</b><span class="tag">VG</span><p data-i18n="m3d">Rice, crispy tofu, avocado, roasted aubergine, cucumber, ginger, sesame oil</p></div><span class="price">16,50</span></div>
+      </div>
+      <div>
+        <div class="cat"><b style="font-weight:500" data-i18n="cat_soups">Rice soups</b> <span data-i18n="cat_soups_s">ochazuke-style</span></div>
+        <div class="item"><div><b data-i18n="m4">Miso salmon rice soup</b><p data-i18n="m4d">Rice, grilled salmon, leek, kale, ginger, nori</p></div><span class="price">17,50</span></div>
+        <div class="item"><div><b data-i18n="m5">Pike-perch dashi rice soup</b><p data-i18n="m5d">Rice, Finnish pike-perch, daikon, wakame, sesame</p></div><span class="price">18,00</span></div>
+        <div class="item"><div><b data-i18n="m6">Shiitake and yuzu rice soup</b><span class="tag">VG</span><p data-i18n="m6d">Rice, silken tofu, shiitake, leek, yuzu, spinach</p></div><span class="price">16,50</span></div>
+      </div>
+    </div>
+
+    <div class="tray">
+      <svg viewBox="0 0 92 92" aria-hidden="true"><rect x="4" y="22" width="84" height="52" rx="10" fill="none" stroke="#fff" stroke-width="2"/><circle cx="34" cy="48" r="16" fill="none" stroke="#F3DCD3" stroke-width="2"/><circle cx="64" cy="40" r="8" fill="none" stroke="#C8462B" stroke-width="2"/><circle cx="64" cy="60" r="7" fill="none" stroke="#7A8B4F" stroke-width="2"/></svg>
+      <div><h3 data-i18n="tray_h">On every tray</h3><p data-i18n="tray_p">A small chawanmushi with crushed peanuts, and quick-pickled cucumber with black beans. Changes with the season.</p></div>
+    </div>
+
+    <div class="menu-grid" style="margin-top:44px">
+      <div>
+        <div class="cat" data-i18n="cat_sides">Sides</div>
+        <div class="item"><div><b data-i18n="s1">Edamame and cucumber salad</b><span class="tag">VG</span><p data-i18n="s1d">Sesame dressing, shiso</p></div><span class="price">5,50</span></div>
+        <div class="item"><div><b data-i18n="s2">Miso-glazed carrots</b><span class="tag">VG</span><p data-i18n="s2d">Roasted, with toasted sesame</p></div><span class="price">5,50</span></div>
+        <div class="cat" data-i18n="cat_extra">Extra toppings</div>
+        <div class="extras">
+          <div><span data-i18n="x1">Rice</span><span data-i18n="free">free</span></div>
+          <div><span data-i18n="x2">Avocado</span><span>+1,50</span></div>
+          <div><span data-i18n="x3">Soft egg</span><span>+1,00</span></div>
+          <div><span data-i18n="x4">Extra salmon</span><span>+4,00</span></div>
+          <div><span data-i18n="x5">Extra beef</span><span>+4,50</span></div>
+          <div><span data-i18n="x6">Yuzu-kosho mayo</span><span>+0,50</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="cat" data-i18n="cat_drinks">Drinks</div>
+        <div class="item"><div><b data-i18n="d1">House ginger lemonade</b><p data-i18n="d1d">Fresh ginger, lemon, mint</p></div><span class="price">5,50</span></div>
+        <div class="item"><div><b data-i18n="d2">Cold-brew hojicha</b><p data-i18n="d2d">Roasted green tea, unsweetened</p></div><span class="price">4,90</span></div>
+        <div class="item"><div><b data-i18n="d3">Sea buckthorn soda</b><p data-i18n="d3d">Finnish sea buckthorn, honey, sparkling water</p></div><span class="price">5,90</span></div>
+        <div class="cat" data-i18n="cat_dessert">Dessert</div>
+        <div class="item"><div><b data-i18n="ds1">Hojicha cheesecake</b></div><span class="price">6,50</span></div>
+        <div class="item"><div><b data-i18n="ds2">Black sesame pound cake</b><span class="tag">VG</span></div><span class="price">6,50</span></div>
+      </div>
+    </div>
+    <p class="note" data-i18n="note">VG = plant-based. Card payments only. This menu is a demo.</p>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="wrap">
+    <h2 data-i18n="visit_h">Visit</h2>
+    <p class="sub" data-i18n="visit_sub">Lunch without booking. Evenings by booking, 45 minutes per seat.</p>
+    <div class="visit">
+      <div class="box">
+        <h3 data-i18n="hours_h">Opening hours</h3>
+        <table class="hours">
+          <tr><td data-i18n="mon">Monday</td><td class="closed" data-i18n="closed">closed</td></tr>
+          <tr><td data-i18n="tuefri">Tue – Fri</td><td>11:00–15:00 · 17:00–21:00</td></tr>
+          <tr><td data-i18n="sat">Saturday</td><td>12:00–21:00</td></tr>
+          <tr><td data-i18n="sun">Sunday</td><td class="closed" data-i18n="closed2">closed</td></tr>
+        </table>
+      </div>
+      <div class="box" id="book">
+        <h3 data-i18n="find_h">Find us</h3>
+        <p style="margin:0 0 6px">Pilvikuja 4, 00100 Helsinki <span style="color:var(--muted)" data-i18n="fictional">(fictional address)</span></p>
+        <p style="margin:0 0 18px;font-family:'IBM Plex Mono'">+358 40 000 0000 · hello@onomichi.example</p>
+        <a class="btn primary" href="mailto:hello@onomichi.example?subject=Evening%20booking" data-i18n="book_btn">Book an evening seat</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap row">
+    <div><a href="#">Instagram</a><a href="#">Google</a><a href="mailto:hello@onomichi.example">Mail</a></div>
+    <div data-i18n="foot">ONOMICHI is a demo restaurant by beestaff.ai. Name, address and menu are made up.</div>
+  </div>
+</footer>
+
+<script>
+const FI={
+ demo:"DEMORAVINTOLA – keksitty paikka beestaff.ai:n esittelyyn. Ei oikea yritys.",
+ nav_menu:"Menu",nav_visit:"Käynti",nav_book:"Varaa",
+ eyebrow:"Kuusi paikkaa · yksi tiski",
+ h1:"Japanilaisia riisikulhoja ja keittoja, tarjoiltuna settinä.",
+ lead:"Lyhyt menu, valmistettu silmiesi edessä. Kauden suomalaisia vihanneksia, vähärasvaista kalaa ja lihaa, vähän öljyä ja joka aamu aloitettu liemi.",
+ cta_menu:"Katso menu",cta_book:"Varaa iltapaikka",seats:"6 paikkaa",
+ about_h:"Näin ONOMICHI toimii",about_sub:"Pieni tarkoituksella, jotta jokainen kulho saa huomion.",
+ a1h:"Valitse kulho tai keitto",a1p:"Viisi kulhoa ja keittoa, joista kaksi täysin kasvipohjaisia. Riisin määrän voi muuttaa maksutta.",
+ a2h:"Tulee settinä",a2p:"Jokainen pääruoka tarjoillaan tarjottimella päivän pienen lisukkeen ja pikkelsien kanssa.",
+ a3h:"Lopuksi jotain makeaa",a3p:"Hojicha-juustokakku tai pala mustaseesamikakkua.",
+ menu_h:"Menu",menu_sub:"Hinnat euroina. Kerro allergioista tilatessasi.",
+ cat_bowls:"Kulhot",cat_soups:"Riisikeitot",cat_soups_s:"ochazuke-tyyliin",
+ m1:"Liekitetty lohikulho",m1d:"Riisiä, ruskistettua lohta, lehtikaalia, kurkkua, pikkelöityä punasipulia, noria, seesamia",
+ m2:"Ohuen naudan kulho",m2d:"Riisiä, suomalaista naudanlihaa, pehmeä muna, lehtikaalia, kevätsipulia, yuzu-kosho-majoneesia",
+ m3:"Tofu-avokadokulho",m3d:"Riisiä, rapeaa tofua, avokadoa, paahdettua munakoisoa, kurkkua, inkivääriä, seesamiöljyä",
+ m4:"Misolohiriisikeitto",m4d:"Riisiä, grillattua lohta, purjoa, lehtikaalia, inkivääriä, noria",
+ m5:"Kuha-dashiriisikeitto",m5d:"Riisiä, suomalaista kuhaa, daikonia, wakamea, seesamia",
+ m6:"Shiitake-yuzuriisikeitto",m6d:"Riisiä, silkkitofua, shiitakea, purjoa, yuzua, pinaattia",
+ tray_h:"Jokaisella tarjottimella",tray_p:"Pieni chawanmushi murskatuilla maapähkinöillä sekä pikakurkkua ja mustapapuja. Vaihtuu kauden mukaan.",
+ cat_sides:"Lisukkeet",s1:"Edamame-kurkkusalaatti",s1d:"Seesamikastike, shiso",s2:"Misolasitetut porkkanat",s2d:"Paahdettu, paahdetulla seesamilla",
+ cat_extra:"Lisätäytteet",x1:"Riisi",free:"maksutta",x2:"Avokado",x3:"Pehmeä muna",x4:"Lisälohi",x5:"Lisänauta",x6:"Yuzu-kosho-majoneesi",
+ cat_drinks:"Juomat",d1:"Talon inkiväärilimonadi",d1d:"Tuoretta inkivääriä, sitruunaa, minttua",d2:"Kylmäuutettu hojicha",d2d:"Paahdettua vihreää teetä, makeuttamaton",d3:"Tyrnisooda",d3d:"Suomalaista tyrniä, hunajaa, kivennäisvettä",
+ cat_dessert:"Jälkiruoka",ds1:"Hojicha-juustokakku",ds2:"Mustaseesamikakku",
+ note:"VG = kasvipohjainen. Vain korttimaksu. Tämä menu on demo.",
+ visit_h:"Käynti",visit_sub:"Lounaalle ilman varausta. Illat varauksella, 45 minuuttia per paikka.",
+ hours_h:"Aukioloajat",mon:"Maanantai",closed:"suljettu",tuefri:"Ti – Pe",sat:"Lauantai",sun:"Sunnuntai",closed2:"suljettu",
+ find_h:"Löydä meidät",fictional:"(keksitty osoite)",book_btn:"Varaa iltapaikka",
+ foot:"ONOMICHI on beestaff.ai:n demoravintola. Nimi, osoite ja menu ovat keksittyjä."
+};
+const EN={};document.querySelectorAll('[data-i18n]').forEach(e=>EN[e.dataset.i18n]=e.textContent);
+let lang='en';
+function setLang(l){lang=l;const d=l==='fi'?FI:EN;document.querySelectorAll('[data-i18n]').forEach(e=>{const k=e.dataset.i18n;if(d[k])e.textContent=d[k]});document.documentElement.lang=l;document.getElementById('lang').textContent=l==='fi'?'EN':'FI';try{localStorage.setItem('onomichi-lang',l)}catch(e){}}
+document.getElementById('lang').onclick=()=>setLang(lang==='en'?'fi':'en');
+try{if(localStorage.getItem('onomichi-lang')==='fi')setLang('fi')}catch(e){}
+</script>
+</body>
+</html>
